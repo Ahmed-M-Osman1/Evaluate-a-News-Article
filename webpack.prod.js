@@ -35,5 +35,12 @@ module.exports = {
 
     ],
     optimization: {
-        minimizer: [new TerserPlugin({}), new OptimizeCSSAssetsPlugin({})],    }
-}
+        minimizer: [new TerserPlugin({}), new OptimizeCSSAssetsPlugin({})],
+        },
+
+        output: {
+            libraryTarget: 'var',
+            library: 'Client',
+          },
+
+    }
