@@ -1,0 +1,18 @@
+.btn {
+    position: relative;
+    padding: 2%;
+    font-size: 18px;
+    font-weight: 900;
+    text-align: center;
+    border: 3px solid red;
+    cursor: pointer;
+    background: #9efffc;
+    &::after {
+        background: blue;
+    }
+    &:hover {
+        color: navy;
+        border-color: rgb(0, 0, 0);
+        background: orange;
+    }
+}
