@@ -18,19 +18,20 @@ const readResponseData = async (url = '', data = {}) => {
 }
 
 const handleSubmit = async () => {
-  const URLOfArticle = document.getElementById('articalURLs').value
-  if (validURL(URLOfArticle)) {
-    const responseData = await readResponseData('http://localhost:8081/add-url', {
-        URLOfArticle
-    })
-    document.getElementById('text').textContent = responseData.text
-    document.getElementById('agreement').textContent = responseData.agreement
-    document.getElementById('confidence').textContent = responseData.confidence
-    document.getElementById('score_tag').textContent = responseData.score_tag
-    document.getElementById('subjectivity').textContent = responseData.subjectivity
-    document.getElementById('irony').textContent = responseData.irony
+  const articleUrl = document.getElementById('articalURLs').value
+  if (validURL(articleUrl)) {
+    const responseData = await readResponseData('http://localhost:8088/add-url', {
+      articleUrl
+    }).then(
+    document.getElementById('text').textContent = responseData.text,
+    document.getElementById('agreement').textContent = responseData.agreement,
+    document.getElementById('confidence').textContent = responseData.confidence,
+    document.getElementById('score_tag').textContent = responseData.score_tag,
+    document.getElementById('subjectivity').textContent = responseData.subjectivity,
+    document.getElementById('irony').textContent = responseData.irony,
+    )
   } else {
-    alert('Enter a valid URL')
+    alert('Try Again - this is Not Valid URL')
   }
 }
 

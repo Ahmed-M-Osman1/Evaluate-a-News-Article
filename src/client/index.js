@@ -3,11 +3,11 @@ import handleSubmit from './js/handleSubmit'
 
 //import './styles/style.scss'
  
-window.addEventListener('', () => {
+window.addEventListener('DOM content Loader', () => {
     console.log('every thing works fine');
 
-    const form = document.getElementById('form')
-    form.addEventListener('submit', (e) => {
+    const btnSubmit = document.getElementById('btn-submit')
+    btnSubmit.addEventListener('click', (e) => {
         e.preventDefault()
         handleSubmit()
     })
