@@ -1,5 +1,5 @@
 // import the handle function.
-import handleSubmit from './js/handleSubmit'
+import { handleSubmit } from './js/handleSubmit'
 
 import './styles/style.scss'
  
@@ -9,7 +9,8 @@ window.addEventListener('DOM content Loader', () => {
     const btnSubmit = document.getElementById('btn-submit')
     btnSubmit.addEventListener('click', (e) => {
         e.preventDefault()
-        handleSubmit()
+        handleSubmit(e)
     })
 });
-export { handleSubmit }
+
+export default handleSubmit;

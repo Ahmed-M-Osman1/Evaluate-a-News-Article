@@ -1,38 +1,41 @@
 import { validURL } from './checkURL'
 
-const readResponseData = async (url = '', data = {}) => {
-  const response = await fetch(url, {
+const serverResponse = async (url = '', theData = {}) => {
+
+  const theResponse = await fetch(url, {
+
     method: 'POST',
     credentials: 'same-origin',
     mode: 'cors',
     headers: {
+
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(data),
+    body: JSON.stringify(theData),
   })
   try {
-      return await response.json()
+      return await theResponse.json()
   } catch (error) {
     console.log(error)
   }
 }
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
-  const articleUrl = document.getElementById('articleURLs').value
+const handleSubmit = async () => {
+
+  const articleUrl = document.getElementById('article-url').value
+
   if (validURL(articleUrl)) {
-    const responseData = await readResponseData('http://localhost:8088/add-url',
-     {
-      articleUrl
+    const collectedData = await serverResponse('http://localhost:8081/add-url', {
+        articleUrl
     })
-    document.getElementById('text').innerHTML = responseData.text
-    document.getElementById('agreement').innerHTML = responseData.agreement
-    document.getElementById('confidence').innerHTML = responseData.confidence
-    document.getElementById('score_tag').innerHTML = responseData.score_tag
-    document.getElementById('subjectivity').innerHTML = responseData.subjectivity
-    document.getElementById('irony').innerHTML = responseData.irony
+    document.getElementById('text').innerHTML = collectedData.text
+    document.getElementById('agreement').innerHTML = collectedData.agreement
+    document.getElementById('confidence').innerHTML = collectedData.confidence
+    document.getElementById('score_tag').innerHTML = collectedData.score_tag
+    document.getElementById('subjectivity').innerHTML = collectedData.subjectivity
+    document.getElementById('irony').innerHTML = collectedData.irony
   } else {
-    alert('Try Again - this is Not Valid URL')
+    alert('Enter a valid URL')
   }
 }
 

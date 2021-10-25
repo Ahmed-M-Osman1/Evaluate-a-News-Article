@@ -23,17 +23,18 @@ app.use(express.static("dist"));
 
 
 app.get('/', function (req, res) {
-    res.sendFile('dist/index.html')
+    // res.sendFile('dist/index.html')
+    res.sendFile(path.resolve('src/client/views/index.html'))
 })
 
 
 const ApiURL = 'https://api.meaningcloud.com/sentiment-2.1'
-const ApiKey = process.env.API_KEY;
+const ApiKey = process.env.API_KEY
 
 
 const axios = require('axios')
 app.post('/add-url', async (req, res) => {
-    const { articleUrl } = document.getElementById('articalURLs').value
+    const { articleUrl } = req.body
     const meaningCloudUrl = `${ApiURL}?key=${ApiKey}&url=${articleUrl}&lang=en`
     try {
       const {
@@ -53,18 +54,16 @@ app.post('/add-url', async (req, res) => {
   })
 
 app.get('/test', function (req, res) {
-  res.send(mockAPIResponse)
+    res.send(mockAPIResponse)
 })
 
 // designates what port the app will listen to for incoming requests
-app.listen(PORT, async (error) => {
-    if (error){ 
-      throw await new Error(error)
+app.listen(PORT, (error) => {
+    if (error) throw new Error(error)
     console.log(`Server listening on port ${PORT}!`)
-  }
 })
 
 
 module.exports = {
-  app
+  app,
 }
