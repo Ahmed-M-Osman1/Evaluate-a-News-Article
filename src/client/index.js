@@ -1,7 +1,7 @@
 // import the handle function.
 import handleSubmit from './js/handleSubmit'
 
-//import './styles/style.scss'
+import './styles/style.scss'
  
 window.addEventListener('DOM content Loader', () => {
     console.log('every thing works fine');

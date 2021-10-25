@@ -1,47 +1,66 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8" />
 
-    <title>Sentiment Analyzer</title>
-  </head>
+<head>
+  <meta charset="utf-8" />
 
-  <body>
-    <main>
-      <div class="container">
-        <p>Enter a URL of an article to discover its sentiment.</p>
-        <section class="main">
-          <form id="form">
-            <label for="articalURLs">URL</label>
-            <input id="articalURLs" type="text" name="input" value="" placeholder="Enter Article URL here" />
-            <button
-              type="submit"
-              class="btn-submit"
-            >
-              Submit
-            </button>
-          </form>
-        </section>
+  <title>Sentiment Analyzer</title>
+</head>
 
-        <section>
-          <strong>Form Results:</strong>
-          <div id="text"></div>
-          <div id="agreement"></div>
-          <div id="subjectivity"></div>
-          <div id="confidence"></div>
-          <div id="irony"></div>
-          <div id="score_tag"></div>
-        </section>
-      </div>
-    </main>
-    <script>
-      // Check that service workers are supported
-      if ('serviceWorker' in navigator) {
-        // Use the window load event to keep the page load performant
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/service-worker.js')
-        })
-      }
-    </script>
-  </body>
+<body>
+  <main>
+    <div class="container">
+      <p>Enter a URL of an article to discover its sentiment.</p>
+      <section class="main">
+        <form id="form" onclick="return Client.handleSubmit(event)">
+          <label for="articleURLs">URL</label>
+          <input id="articleURLs" type="text" name="input" value="" placeholder="Enter Article URL here" />
+          <button type="submit" class="btn-submit" name="" value="submit">
+            Submit
+          </button>
+        </form>
+      </section>
+
+      <section>
+        <strong> Form Results: </strong>
+        <table id="sentiment-table">
+          <tr>
+            <td>Sentiment</td>
+            <td>Result</td>
+          </tr>
+          <tr>
+            <td>Agreement:</td>
+            <td id="agreement"></td>
+          </tr>
+          <tr>
+            <tr>
+            <td>Score Tag:</td>
+            <td id="score_tag"></td>
+          </tr>
+            <td>Subjectivity:</td>
+            <td id="subjectivity"></td>
+          </tr>
+          <tr>
+            <td>Confidence:</td>
+            <td id="confidence"></td>
+          </tr>
+          <tr>
+            <td>Irony:</td>
+            <td id="irony"></td>
+          </tr>
+        </table>
+      </section>
+    </div>
+  </main>
+  <script>
+    // Check that service workers are supported
+    if ('serviceWorker' in navigator) {
+      // Use the window load event to keep the page load performant
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js')
+      })
+    }
+  </script>
+</body>
+
 </html>

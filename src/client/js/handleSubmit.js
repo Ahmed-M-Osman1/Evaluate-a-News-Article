@@ -17,19 +17,20 @@ const readResponseData = async (url = '', data = {}) => {
   }
 }
 
-const handleSubmit = async () => {
-  const articleUrl = document.getElementById('articalURLs').value
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  const articleUrl = document.getElementById('articleURLs').value
   if (validURL(articleUrl)) {
-    const responseData = await readResponseData('http://localhost:8088/add-url', {
+    const responseData = await readResponseData('http://localhost:8088/add-url',
+     {
       articleUrl
-    }).then(
-    document.getElementById('text').textContent = responseData.text,
-    document.getElementById('agreement').textContent = responseData.agreement,
-    document.getElementById('confidence').textContent = responseData.confidence,
-    document.getElementById('score_tag').textContent = responseData.score_tag,
-    document.getElementById('subjectivity').textContent = responseData.subjectivity,
-    document.getElementById('irony').textContent = responseData.irony,
-    )
+    })
+    document.getElementById('text').innerHTML = responseData.text
+    document.getElementById('agreement').innerHTML = responseData.agreement
+    document.getElementById('confidence').innerHTML = responseData.confidence
+    document.getElementById('score_tag').innerHTML = responseData.score_tag
+    document.getElementById('subjectivity').innerHTML = responseData.subjectivity
+    document.getElementById('irony').innerHTML = responseData.irony
   } else {
     alert('Try Again - this is Not Valid URL')
   }

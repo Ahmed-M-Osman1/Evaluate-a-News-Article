@@ -3,7 +3,7 @@
 
 import 'babel-polyfill'
 
-import handleSubmit from '../js/formHandler'
+import { handleSubmit } from '../js/handleSubmit'
 
 describe('Testing the handleSubmit functionality', () => {
     
