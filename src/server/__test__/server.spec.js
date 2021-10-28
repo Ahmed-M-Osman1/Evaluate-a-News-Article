@@ -19,13 +19,13 @@ describe('API Test', () => {
       .get('/')
       .send('./dist/index.html')
       .then((response) => {
-        expect(response.statusCode).toEqual(500)
+        expect(response.statusCode).toEqual(200)
         done()
       })
   })
   test('It Should response with error for wrong path', (done) => {
     request(app)
-      .get('/zanaty')
+      .get('/ahmed')
       .then((response) => {
         expect(response.statusCode).toBe(404)
         done()
