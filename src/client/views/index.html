@@ -10,23 +10,28 @@
 <body>
   <main>
     <div class="container">
-      <p>Enter a URL of an article to discover its sentiment.</p>
+      <p class="statment">Enter a URL of an article to discover its sentiment.</p>
       <section class="main">
-        <form id="form" >
-          <label for="articleURLs">URL</label>
-          <input id="articleURLs" type="text" name="input" value="" placeholder="Enter Article URL here" />
-          <button type="submit" class="btn-submit" name="" value="submit" onclick="return Client.handleSubmit(event)" >
+        <form id="form">
+          <label for="article-url">URL</label>
+          <br/>
+          <input id="article-url" type="text" name="input" value="" placeholder="Enter Article URL here" />
+          <button type="submit" class="btn-submit" name="" >
             Submit
           </button>
         </form>
       </section>
 
-      <section>
-        <strong> Form Results: </strong>
+      <section id="result-section">
+        <strong class="statment2"> Form Results: </strong>
         <table id="sentiment-table">
           <tr>
             <td>Sentiment</td>
             <td>Result</td>
+          </tr>
+          <tr>
+            <td>Text:</td>
+            <td id="text"></td>
           </tr>
           <tr>
             <td>Agreement:</td>

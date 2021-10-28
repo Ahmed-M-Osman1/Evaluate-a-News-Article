@@ -1,16 +1,14 @@
 // import the handle function.
-import { handleSubmit } from './js/handleSubmit'
+import handleSubmit from './js/handleSubmit'
 
 import './styles/style.scss'
  
-window.addEventListener('DOM content Loader', () => {
+window.addEventListener('DOMContentLoaded', () => {
     console.log('every thing works fine');
 
-    const btnSubmit = document.getElementById('btn-submit')
-    btnSubmit.addEventListener('click', (e) => {
+    const formSubmit = document.getElementById('form')
+    formSubmit.addEventListener('submit', (e) => {
         e.preventDefault()
-        handleSubmit(e)
+        handleSubmit()
     })
 });
-
-export default handleSubmit;

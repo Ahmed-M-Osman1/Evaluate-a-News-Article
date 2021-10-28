@@ -3,6 +3,7 @@
 .btn-submit {
     position: relative;
     padding: 2%;
+    width: 87%;
     font-size: 18px;
     font-weight: 900;
     text-align: center;
@@ -17,4 +18,34 @@
         border-color: rgb(0, 0, 0);
         background: orange;
     }
+}
+
+form {
+    margin-top: 40px;
+    border-radius: 3px;
+    border:2px solid #ff0101;
+    padding: 20px;
+    input {
+        padding: 5px 20px;
+        width: 80%;
+        line-height: 16px;
+        margin: 10px 0;
+    }
+}
+
+label {
+    color: #ff0101;
+margin: 40%;
+font-size: 24px;
+font-weight: 1200;
+}
+
+.table, td {
+    font-size: 24px;
+    font-weight: 1200;
+    align-items: center;
+    text-align: center;
+    border: 1px solid #ff0101;
+    border-radius: 3px;
+    padding: 5px;
 }
