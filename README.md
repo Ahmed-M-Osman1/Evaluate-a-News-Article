@@ -1,5 +1,10 @@
 # Getting Started with Would You Rather Game app:
 
+
+![evaluate news article](https://github.com/akiid777/Evaluate-a-News-Article/blob/main/evaluate-news-article.gif)
+
+
+
 This project is a part of become react & redux FWD scholarship (https://egfwd.com/) at Udacity (https://www.udacity.com/).
 
 ## Author:
