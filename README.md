@@ -1,4 +1,4 @@
-# Getting Started with Would You Rather Game app:
+# Getting Started with Evaluate a News Article app:
 
 
 ![evaluate news article](https://github.com/akiid777/Evaluate-a-News-Article/blob/main/evaluate-news-article.gif)
